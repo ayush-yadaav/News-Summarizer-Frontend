@@ -32,91 +32,57 @@ export default function Signup() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[#0d1117] text-white relative">
-      {/* Toast container */}
-      <Toaster
-        position="top-center"
-        toastOptions={{
-          style: {
-            background: "#161b22",
-            color: "#fff",
-            border: "1px solid #2d3748",
-          },
-          success: {
-            iconTheme: {
-              primary: "#22c55e",
-              secondary: "#161b22",
-            },
-          },
-          error: {
-            iconTheme: {
-              primary: "#ef4444",
-              secondary: "#161b22",
-            },
-          },
-        }}
-      />
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 text-gray-900">
+      <Toaster position="top-center" />
 
-      {/* Animated Card */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="bg-[#161b22] p-8 rounded-2xl shadow-lg w-full max-w-md border border-gray-800"
+        transition={{ duration: 0.6 }}
+        className="bg-white border border-gray-200 shadow-lg rounded-2xl p-8 w-full max-w-md"
       >
-        {/* Logo & Title */}
-        <motion.div
-          initial={{ opacity: 0, y: -15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="flex flex-col items-center mb-6"
-        >
-          <div className="flex items-center gap-2 mb-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
+        {/* Logo */}
+        <div className="flex flex-col items-center mb-6">
+          <div className="flex items-center gap-2 mb-1">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold">
               ✦
             </div>
-            <h1 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+            <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
               NewsSummarizer
             </h1>
           </div>
           <h2 className="text-2xl font-semibold">Create Account</h2>
-          <p className="text-gray-400 text-sm mt-1">
+          <p className="text-gray-500 text-sm mt-1">
             Join us and start summarizing today
           </p>
-        </motion.div>
+        </div>
 
         {/* Form */}
-        <motion.form
-          onSubmit={handleSubmit}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="flex flex-col gap-4"
-        >
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <input
             type="text"
             placeholder="Full Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="bg-[#0d1117] border border-gray-700 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+            className="bg-gray-50 border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
           />
           <input
             type="email"
             placeholder="you@example.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="bg-[#0d1117] border border-gray-700 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+            className="bg-gray-50 border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
           />
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="bg-[#0d1117] border border-gray-700 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+            className="bg-gray-50 border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
           />
 
           <motion.button
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             type="submit"
             disabled={loading}
@@ -124,22 +90,17 @@ export default function Signup() {
           >
             {loading ? "Creating Account..." : "Create Account"}
           </motion.button>
-        </motion.form>
+        </form>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          className="mt-6 text-center text-gray-400 text-sm"
-        >
+        <p className="mt-6 text-center text-gray-600 text-sm">
           Already have an account?{" "}
           <Link
             to="/login"
-            className="text-blue-400 hover:underline hover:text-blue-300 transition"
+            className="text-blue-600 hover:underline hover:text-blue-500"
           >
             Sign in
           </Link>
-        </motion.p>
+        </p>
       </motion.div>
     </div>
   );

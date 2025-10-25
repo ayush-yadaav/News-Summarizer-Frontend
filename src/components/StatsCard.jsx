@@ -14,13 +14,13 @@ export default function StatsCard() {
 
   return (
     <div className="flex flex-wrap gap-6 mb-6">
-      <div className="flex-1 min-w-[200px] bg-gray-800 p-6 rounded-2xl shadow text-center text-white">
-        <h4 className="text-gray-400 mb-2">Total Summaries</h4>
-        <p className="text-3xl font-bold">{stats.total}</p>
+      <div className="flex-1 min-w-[200px] bg-white border border-gray-200 p-6 rounded-2xl shadow-sm text-center">
+        <h4 className="text-gray-500 mb-2">Total Summaries</h4>
+        <p className="text-3xl font-bold text-gray-800">{stats.total}</p>
       </div>
-      <div className="flex-1 min-w-[200px] bg-gray-800 p-6 rounded-2xl shadow text-center text-white">
-        <h4 className="text-gray-400 mb-2">Today's Summaries</h4>
-        <p className="text-3xl font-bold">{stats.today}</p>
+      <div className="flex-1 min-w-[200px] bg-white border border-gray-200 p-6 rounded-2xl shadow-sm text-center">
+        <h4 className="text-gray-500 mb-2">Today's Summaries</h4>
+        <p className="text-3xl font-bold text-gray-800">{stats.today}</p>
       </div>
     </div>
   );

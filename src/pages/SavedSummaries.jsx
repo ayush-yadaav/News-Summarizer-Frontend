@@ -10,7 +10,16 @@ export default function SavedSummaries() {
   useEffect(() => {
     API.get("/summary/saved")
       .then((res) => setSummaries(res.data))
-      .catch(() => toast.error("Failed to load summaries"))
+      .catch(() =>
+        toast.error("Failed to load summaries", {
+          style: {
+            background: "#fff",
+            color: "#333",
+            borderRadius: "10px",
+            border: "1px solid #ef4444",
+          },
+        })
+      )
       .finally(() => setLoading(false));
   }, []);
 
@@ -19,53 +28,67 @@ export default function SavedSummaries() {
     try {
       await API.delete(`/summary/${id}`);
       setSummaries((s) => s.filter((x) => x._id !== id));
-      toast.success("Summary deleted!");
+      toast.success("Summary deleted!", {
+        style: {
+          background: "#fff",
+          color: "#333",
+          borderRadius: "10px",
+          border: "1px solid #d1d5db",
+        },
+      });
     } catch {
-      toast.error("Failed to delete summary");
+      toast.error("Failed to delete summary", {
+        style: {
+          background: "#fff",
+          color: "#333",
+          borderRadius: "10px",
+          border: "1px solid #ef4444",
+        },
+      });
     }
   };
 
   return (
-    <div className="relative min-h-screen bg-[#0b1224] text-white px-8 py-10 ml-0 md:ml-64 transition-all duration-300">
+    <div className="relative min-h-screen bg-gray-50 text-gray-800 px-8 py-10 ml-0 md:ml-64 transition-all duration-300">
       {/* Toast container */}
       <Toaster position="top-right" reverseOrder={false} />
 
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold mb-2">Saved Summaries</h1>
-        <p className="text-gray-400 mb-10">
+        <h1 className="text-4xl font-bold mb-2 text-gray-900">Saved Summaries</h1>
+        <p className="text-gray-500 mb-10">
           Access your previously saved summaries
         </p>
 
         {loading ? (
-          <p className="text-gray-400 text-center">Loading summaries...</p>
+          <p className="text-gray-500 text-center">Loading summaries...</p>
         ) : summaries.length === 0 ? (
-          <p className="text-gray-400 text-center">No saved summaries.</p>
+          <p className="text-gray-500 text-center">No saved summaries.</p>
         ) : (
           <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
             {summaries.map((s) => (
               <div
                 key={s._id}
-                className="bg-[#121b36] rounded-2xl p-6 shadow-md hover:shadow-blue-800/40 transition-all duration-300 relative"
+                className="bg-white rounded-2xl p-6 shadow-md border border-gray-200 hover:shadow-lg hover:scale-[1.01] transition-all duration-300 relative"
               >
                 <div className="flex justify-between items-start">
-                  <h2 className="text-xl font-semibold mb-2 text-white">
+                  <h2 className="text-xl font-semibold mb-2 text-gray-900">
                     {s.title || "Untitled Summary"}
                   </h2>
                   <button
                     onClick={() => handleDelete(s._id)}
-                    className="text-red-400 hover:text-red-500 transition"
+                    className="text-red-500 hover:text-red-600 transition"
                   >
                     <Trash2 size={18} />
                   </button>
                 </div>
 
-                <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                   {s.summary.length > 220
                     ? s.summary.slice(0, 220) + "..."
                     : s.summary}
                 </p>
 
-                <div className="flex items-center text-gray-400 text-sm">
+                <div className="flex items-center text-gray-500 text-sm">
                   <Clock size={14} className="mr-2" />
                   {s.createdAt
                     ? timeAgo(new Date(s.createdAt))

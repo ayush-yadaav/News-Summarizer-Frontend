@@ -1,4 +1,3 @@
-
 import { Home, Newspaper, Bookmark, User } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -6,15 +5,11 @@ export default function Sidebar() {
   const location = useLocation();
 
   return (
-    <aside
-      className="hidden md:block fixed z-40 top-16 h-[calc(100vh-4rem)] bg-gray-900 text-gray-100 w-64"
-    >
-      {/* Header */}
-      {/* <div className="flex items-center justify-center p-4 border-b border-gray-800">
-        <h1 className="text-xl font-bold text-white">NewsSummarizer</h1>
-      </div> */}
+    <aside className="hidden md:block fixed top-0 left-0 h-screen w-64 bg-white border-r border-gray-200 z-40">
+      <div className="flex items-center justify-center h-16 border-b border-gray-200">
+        <h1 className="text-lg font-semibold text-gray-800">🪶 Newslyze</h1>
+      </div>
 
-      {/* Navigation */}
       <nav className="mt-6 space-y-2">
         <SidebarLink
           to="/dashboard"
@@ -50,13 +45,14 @@ function SidebarLink({ to, icon, label, location }) {
   return (
     <Link
       to={to}
-      className={`flex items-center gap-3 px-5 py-3 rounded-lg mx-3 transition-colors ${active ? "bg-indigo-600 text-white" : "hover:bg-gray-800"
-        }`}
+      className={`flex items-center gap-3 mx-4 px-4 py-3 rounded-xl transition-all ${
+        active
+          ? "bg-[#E8D9FF] text-[#6D28D9] font-semibold"
+          : "text-gray-600 hover:bg-gray-100"
+      }`}
     >
       {icon}
       {label}
     </Link>
   );
 }
-
-

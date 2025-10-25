@@ -110,6 +110,7 @@ import SavedSummaries from "./pages/SavedSummaries";
 import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
 import { Toaster } from "react-hot-toast";
+import Contact from "./pages/Contact";
 
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem("token");
@@ -148,19 +149,21 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/contact" element={<Contact />} />
+
 
         {/* Protected Routes */}
         <Route
           path="/*"
           element={
             <ProtectedRoute>
-              <div className="flex h-screen bg-gray-950 text-gray-100">
+              <div className="flex h-screen  text-gray-100">
                 <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
                 <div className="flex-1 flex flex-col overflow-hidden">
                   <Navbar
                     toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
                   />
-                  <main className="flex-1 overflow-y-auto p-6 bg-gray-900">
+                  <main className="flex-1 overflow-y-auto p-6 mt-3 ">
                     <Routes>
                       <Route path="/dashboard" element={<Dashboard />} />
                       <Route path="/news" element={<News />} />
