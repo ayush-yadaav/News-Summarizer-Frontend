@@ -21,7 +21,7 @@ export default function Footer() {
           <a href="#" className="hover:text-gray-900 transition-colors">
             Terms
           </a>
-          <a href="/contact" className="hover:text-gray-900 transition-colors">
+          <a href="https://news-summarizer-frontend-sigma.vercel.app/contact" className="hover:text-gray-900 transition-colors">
             Contact
           </a>
         </div>

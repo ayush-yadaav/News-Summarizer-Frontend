@@ -45,7 +45,7 @@ export default function DemoSection() {
         {/* CTA Button */}
         <div className="mt-10">
           <button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold px-6 py-3 rounded-xl shadow hover:opacity-90 transition">
-            <a href="/login">Try It Yourself</a>
+            <a href="https://news-summarizer-frontend-sigma.vercel.app/login">Try It Yourself</a>
           </button>
         </div>
       </div>
