@@ -1,4 +1,6 @@
 // import heroImage from "../assets/hero-image.jpg"; // your image
+import { Link } from "react-router-dom";
+
 
 export default function Hero() {
   return (
@@ -23,9 +25,18 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-          <button className="bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-3 rounded-lg text-lg font-semibold text-white hover:opacity-90 transition">
+          {/* <button className="bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-3 rounded-lg text-lg font-semibold text-white hover:opacity-90 transition">
             <a href="https://news-summarizer-frontend-sigma.vercel.app/signup">Try  Now →</a>
-          </button>
+          </button> */}
+          <Link
+  to="/signup"
+  className="bg-gradient-to-r from-blue-500 to-purple-600
+             px-6 py-3 rounded-lg text-lg font-semibold text-white
+             hover:opacity-90 transition"
+>
+  Try Now →
+</Link>
+
           <button className="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition">
             <a href="#demo">See Demo</a>
           </button>
